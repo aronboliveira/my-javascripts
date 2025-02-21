@@ -1,12 +1,25 @@
-import {
-  disableableElement,
-  entryElement,
-  genericElement,
-  imageLikeElement,
-  inputLikeElement,
-  listElement,
-  pressableElement,
-} from "./helpers";
+export type inputLikeElement =
+  | HTMLInputElement
+  | HTMLTextAreaElement;
+export type listElement =
+  | HTMLUListElement
+  | HTMLOListElement
+  | HTMLMenuElement;
+export type genericElement =
+  | HTMLDivElement
+  | HTMLSpanElement;
+export type inputLikeElement =
+  | HTMLInputElement
+  | HTMLTextAreaElement;
+export type entryElement =
+  | inputLikeElement
+  | HTMLSelectElement;
+export type disableableElement =
+  | entryElement
+  | HTMLButtonElement;
+export type pressableElement =
+  | HTMLButtonElement
+  | HTMLInputElement;
 export default class DOMValidator {
   static hasAnyClass(el: Element, compared: Array<string>) {
     return compared.some(cls => el.classList.contains(cls));
