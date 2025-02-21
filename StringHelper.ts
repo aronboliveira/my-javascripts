@@ -1,4 +1,4 @@
-import { PseudoNum } from "../definitions/foundations";
+import { PseudoNum } from "./foundations";
 export default class StringHelper {
   public static LOWERCASE_ACCENTED = "a-záàâäãéèêëíìîïóòôöõúùûüçñ";
   public static UPPERCASE_ACCENTED = "A-ZÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÇÑ";
