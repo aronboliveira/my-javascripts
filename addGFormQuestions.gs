@@ -418,6 +418,25 @@ sharing = {
         ]
       }
     ]
+  },
+  {
+    id: "FORM_6",
+    fields: [
+      {
+        title: "Você precisa cadastrar, atualizar ou recuperar informações?",
+        tipe: "multiple",
+        choices: ["Cadastrar", "Atualizar", "Recuperar"]
+      },
+      {
+        title: "O problema envolve relacionamento com clientes, suporte após prestação de serviço ou suporte contratual?",
+        type: "multiple",
+        choices: ["Relacionamento com clientes", "Suporte após prestação de Serviço", "Suporte Contratual"]
+      },
+      {
+        title: "Existe necessidade de expansão da rede de representantes ou parceiros?",
+        ...yn
+      }
+    ]
   }
 ].forEach(({id, fields}) => {
   addQuestions(id, fields);
