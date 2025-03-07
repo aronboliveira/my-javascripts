@@ -362,6 +362,30 @@ sharing = {
         ...yn
       }
     ]
+  },
+  {
+   id: "FORM_4",
+   fields: [
+    ...bwr,
+    device,
+    contactApp,
+    {
+      title: "Você já tentou limpar cookies e/ou cache no Aplicativo e/ou o Serviço usado?",
+      ...yn
+    },
+    {
+      title: "Nome do provedor de SSO, se tiver acesso",
+    },
+    {
+      title: "A tentativa de acesso foi em uma rede comportilhada ou pessoal?",
+      ...sharing
+    },
+    {
+      title: "Existem códigos de Backup?",
+      type: "multiple",
+      ...yn
+    }
+   ] 
   }
 ].forEach(({id, fields}) => {
   addQuestions(id, fields);
