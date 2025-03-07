@@ -389,6 +389,35 @@ sharing = {
       ...yn
     }
    ] 
+  },
+  {
+    id: "FORM_5",
+    fields: [
+      ...bwr,
+      device,
+      contactApp,
+      {
+        title: "Quantas tentativas de reconfiguração já houveram?"
+      },
+      {
+        title: "Qual é o tipo de biometria em questão?",
+        type: "dropdown",
+        choices: [
+          "Facial",
+          "Digital",
+          "Iris",
+          "Voz",
+          "Veias da Palma",
+          "Reconhecimento de Padrões de Veias",
+          "Reconhecimento de Assinatura",
+          "Reconhecimento de Digitação",
+          "Reconhecimento de Andar",
+          "Reconhecimento de Forma da Orelha",
+          "Reconhecimento de Odor",
+          "Reconhecimento de DNA"
+        ]
+      }
+    ]
   }
 ].forEach(({id, fields}) => {
   addQuestions(id, fields);
