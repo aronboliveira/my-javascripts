@@ -310,6 +310,9 @@ sharing = {
         ...sharing
       },
       {
+        title: "Quantas tentativas de acesso já foram feitas?"
+      },
+      {
         title: "Data do bloqueio:",
         type: "date"
       },
