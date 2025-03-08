@@ -280,7 +280,34 @@ device = {
 sharing = {
   type: "multiple",
   choices: ["Corporativa", "Pessoal"]
-};
+},
+contractStart = [
+  {
+    title: "CPF ou CNPJ do titular do contrato",
+    required: true
+  },
+  {
+    title: "Qual é o tipo de contrato que você deseja iniciar?",
+    type: "multiple",
+    choices: ["Prestação de Serviço", "Mensal"],
+    required: true
+  },
+  {
+    title: "Qual é a duração desejada do contrato, caso seja mensal?"
+  },
+  {
+    title: "Quais são as formas de pagamento a serem sugeridas?"
+  },
+  {
+    title: "Use este espaço para incluir necessidade específicas a serem incluídas (ex.: cláusulas personalizadas, formas de pagamento diferenciadas)",
+    type: "paragraph"
+  }
+],
+mailDirs = [
+  {
+    title: "Pastas da caixa de e-mail afetada (principal, social, customizadas, etc.)"
+  }
+];
 [
   {
     id: 'FORM_1', 
@@ -434,6 +461,176 @@ sharing = {
       },
       {
         title: "Existe necessidade de expansão da rede de representantes ou parceiros?",
+        ...yn
+      }
+    ]
+  },
+  {
+    id: "FORM_7",
+    fields: [
+      ...contractStart
+    ]
+  },
+  {
+    id: "FORM_8",
+    fields: [
+      {
+        title: "Qual é o número ou identificação do contrato que deseja alterar?",
+        required: true,
+      },
+      {
+        title: "Qual tipo de alteração é necessária?",
+        type: "paragraph",
+        required: true
+      },
+    ]
+  },
+  {
+    id: "FORM_9",
+    fields: [
+      {
+        title: "Qual é o número ou identificação do contrato a ser encerrado?",
+        required: true,
+      },
+      {
+        title: "Qual o motivo do encerramento do contrato?",
+        type: "dropdown",
+        choices: [
+          "O serviço não atendeu às necessidades",
+          "Questões financeiras",
+          "Encerramento de atividades",
+          "Mudança de fornecedor",
+          "Insatisfação com o atendimento",
+          "Problemas técnicos recorrentes",
+          "Falta de suporte adequado",
+          "Mudança de estratégia da empresa",
+          "Redução de custos",
+          "Fim do período de contrato sem renovação",
+          "Desacordo com termos e condições",
+          "Falta de atualizações ou inovações no serviço",
+          "Mudança de prioridades da empresa",
+          "Falta de integração com outros sistemas",
+          "Problemas de segurança ou privacidade",
+          "Outro motivo"
+        ]
+      },
+      {
+        title: 'Caso tenha escolhido "Outros" na opção anterior, detalhe aqui:',
+      },
+      {
+        title: "Você já está ciente de possíveis quebras de cláusulas de fidelidade ou multas por rescisão antecipada?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "Você deseja negociar valores pendentes?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "Use este espaço livremente para deixar feedbacks sobre o serviço, experiências e suas motivações",
+        type: "paragraph"
+      }
+    ]
+  },
+  {
+    id: "FORM_10",
+    fields: [
+      ...os,
+      {
+        title: "Nome específico (ou indicativo) da configuração defeituosa ou em necessidade de ajuste",
+        required: true,
+        type: 'paragraph'
+      }
+    ]
+  },
+  {
+    id: "FORM_11",
+    fields: [
+      {
+        title: "Nome da Configuração, Recurso ou Ferramenta que deseja ajustar",
+        required: true
+      },
+      ...bwr,
+    ]
+  },
+  {
+    id: "FORM_12",
+    fields: [
+      ...bwr,
+      ...mailDirs,
+      {
+        title: 'Dados sobre frequência de sincronização (procure alguma informação como "Última sincronização" nas mensagens ou configuração do seu aplicativo)',
+        required: true,
+        type: "paragraph"
+      },
+    ]
+  },
+  {
+    id: "FORM_13",
+    fields: [
+      ...bwr,
+      ...mailDirs,
+      {
+        title: "Remetente (endereço de envio relacionado) do e-mail",
+        required: true,
+      },
+      {
+        title: "Assunto do e-mail",
+        required: true,
+      },
+      {
+        title: "Corpo e cabeçalho do e-mail (não copie e cole, envie prints ou descreva)",
+        type: 'paragraph'
+      },
+      {
+        title: "Assinatura do e-mail",
+      },
+      {
+        title: "Quais categorias de dados comprometedores sobre você ou a sua empresa o e-mail apresenta?",
+        required: true
+      },
+      {
+        title: "O agressor apresentou algum tipo de evidência factível sobre suas atividades recentes?",
+        required: true,
+        ...yn
+      },
+      {
+        title: 'O agressor apresentou alguma forma de apresentação explícita (ex.: "Sou um hacker!")',
+        required: true,
+        ...yn
+      },
+      {
+        title: "Foi feita alguma forma de tentativa de extorção na mensagem?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "O agressor o/a contatou ou afetou de alguma maneira que não seja o e-mail em questão?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "Você respondeu ao agressor de alguma forma?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "Se sim para o último caso, por favor detalhe aqui:",
+        type: "paragraph"
+      },
+      {
+        title: "Você acessou algum hyperlink ou baixou algum arquivo apresentado pelo agressor?",
+        required: true,
+        ...yn
+      },
+      {
+        title: "Se sim para o último caso, detalhe (sem enviar os links e/ou arquivos relacionados)",
+        type: "paragraph"
+      },
+      {
+        title: "Você reconhece de alguma forma algum dos dados do agressor (endereço, nome, etc.)?",
+        required: true,
         ...yn
       }
     ]
