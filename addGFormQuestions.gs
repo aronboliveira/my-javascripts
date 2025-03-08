@@ -307,7 +307,66 @@ mailDirs = [
   {
     title: "Pastas da caixa de e-mail afetada (principal, social, customizadas, etc.)"
   }
-];
+],
+nwType = {
+  title: "Qual é o tipo de rede que você estava utilizando durante a chamada?",
+  type: "dropdown",
+  choices = [
+  ...["Wi-Fi 4", "Wi-Fi 5", "Wi-Fi 6", "Wi-Fi 6E", "Wi-Fi 7"]
+    .flatMap(g => [
+      ...(g.includes("4") || g.includes("7") || (g.includes("6") && !g.endsWith("E"))) ? [`${g} - 2.4 GHz`] : [], 
+      ...(!g.includes("6E") ? [`${g} - 5 GHz`] : []), 
+      ...(g.includes("6E") ? [`${g} - 6 GHz`] : []),
+      ...(g.includes("7") ? [`${g} - 6 GHz`, `${g} - Multi-Link`] : [])
+    ]),
+    ...["5G", "4G","3G", "2G","LTE"].map(g => `Rede Móvel ${g}`),
+    "Ethernet",
+    "Bluetooth",
+    "VPN",
+    "Satélite",
+    "Dial-Up",
+    "Rede Mesh",
+    "Ponto de Acesso Móvel"
+  ],
+},
+audioErrors = {
+  title: "Quais destes tópicos você consegue identificar que têm relação com o seu problema na Tranmissão de áudio?",
+  type: "checkbox",
+  choices: [
+    "Sem áudio na chamada",
+    "Áudio distorcido/embaralhado",
+    "Eco na chamada",
+    "Volume muito baixo",
+    "Cortes intermitentes de áudio",
+    "Ruído de fundo excessivo",
+    "Latência no áudio (atraso)",
+    "Microfone não detectado",
+    "Áudio unilateral (apenas uma parte ouve)",
+    "Voz robótica ou digitalizada",
+    "Incompatibilidade de codec de áudio",
+    "Problemas de driver de áudio",
+    "Falha de hardware (ex: alto-falante quebrado)"
+  ]
+},
+videoErrors = {
+  title: "Quais destes tópicos você consegue identificar que têm relação com o seu problema na Transmissão de vídeo?",
+  type: "checkbox",
+  choices = [
+    "Sem transmissão de vídeo",
+    "Qualidade de vídeo granulada/pixelada",
+    "Vídeo congelando repetidamente",
+    "Atraso entre áudio e vídeo",
+    "Tela preta durante a chamada",
+    "Vídeo borrado ou fora de foco",
+    "Queda de resolução repentina",
+    "Câmera não detectada",
+    "Flickering ou cintilação na imagem",
+    "Problemas de largura de banda (vídeo pixelado)",
+    "Incompatibilidade de codec de vídeo",
+    "Problemas de driver da câmera",
+    "Falha de hardware (ex: câmera danificada)"
+  ]
+};
 [
   {
     id: 'FORM_1', 
@@ -633,6 +692,27 @@ mailDirs = [
         required: true,
         ...yn
       }
+    ]
+  },
+  {
+    id: "FORM_14",
+    fields: [
+      device,
+      ...os,
+      ...bwr,
+      nwType,
+      audioErrors,
+      videoErrors
+    ]
+  },
+  {
+    id: "FORM_15",
+    fields: [
+      device,
+      ...os,
+      ...bwr,
+      nwType,
+      audioErrors
     ]
   }
 ].forEach(({id, fields}) => {
