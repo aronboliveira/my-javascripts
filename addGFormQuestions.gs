@@ -31,9 +31,12 @@ function addQuestions(idf, fields) {
     const li = form.getItems()[i],
     title = li.getTitle();
     if (title?.trim().toLowerCase() === 'nome') foundBasicFields.name = true;
-    else if (title?.trim().toLowerCase().match(/^\s*Contato\s*(e\-?mail\s*ou\s*telefone)\s*$/i)) foundBasicFields.contact = true;
+    if (title?.trim().toLowerCase().match(/^\s*Contato\s*\(e\-?mail\s*ou\s*telefone\)\s*$/i)) foundBasicFields.contact = true;
     const found = form.getItems().findIndex(item => item?.getTitle()?.toLowerCase().trim() === title?.toLowerCase().trim());
-    found && found !== -1 && !['Avalie sua satisfação com este formulário!', 'Envie aqui anexos para o diagnóstico, caso queira:', 'Caso haja uma mensagem de erro em tela, escreva a mesma aqui:'].some(t => t === li.getTitle()) && form.deleteItem(li.getIndex());
+    found && found !== -1 && 
+      !['Avalie sua satisfação com este formulário!', 'Envie aqui anexos para o diagnóstico, caso queira:', 'Caso haja uma mensagem de erro em tela, escreva a mesma aqui:']
+        .some(t => t === li.    getTitle()) 
+          && form.deleteItem(li.getIndex());
     switch (title) {
       case 'Avalie sua satisfação com este formulário!':
         lastItems.push(li);
