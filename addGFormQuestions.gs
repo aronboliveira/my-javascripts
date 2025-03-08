@@ -369,7 +369,32 @@ videoErrors = {
     "Problemas de driver da câmera",
     "Falha de hardware (ex: câmera danificada)"
   ]
-};
+},
+teleComCompanies = [
+  {
+    title: "Qual era a operadora de Telecomunicação no dispositivo em que você fez a chamada?",
+    type: "dropdown",
+    choices: [
+      "Algar Telecom",
+      "Claro Brasil",
+      "Copel Telecom",
+      "Embratel",
+      "GVT (Global Village Telecom)",
+      "Nextel Brasil",
+      "Oi",
+      "Sercomtel",
+      "Sky Brasil (Divisão de Telecomunicação)",
+      "Telefônica Brasil (Vivo)",
+      "TIM Brasil",
+      "Vivo (Telefônica Brasil)",
+      "Outra"
+    ],
+    required: true
+  },
+  {
+    title: 'Se você escolheu "Outra" na operação anterior, detalhe aqui:'
+  }
+];
 [
   {
     id: 'FORM_1', 
@@ -716,6 +741,14 @@ videoErrors = {
       ...bwr,
       nwType,
       audioErrors
+    ]
+  },
+  {
+    id: "FORM_16",
+    fields: [
+      device,
+      audioErrors,
+      ...teleComCompanies
     ]
   }
 ].forEach(({id, fields}) => {
