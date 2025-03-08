@@ -311,7 +311,7 @@ mailDirs = [
 nwType = {
   title: "Qual é o tipo de rede que você estava utilizando durante a chamada?",
   type: "dropdown",
-  choices = [
+  choices: [
   ...["Wi-Fi 4", "Wi-Fi 5", "Wi-Fi 6", "Wi-Fi 6E", "Wi-Fi 7"]
     .flatMap(g => [
       ...(g.includes("4") || g.includes("7") || (g.includes("6") && !g.endsWith("E"))) ? [`${g} - 2.4 GHz`] : [], 
@@ -351,7 +351,7 @@ audioErrors = {
 videoErrors = {
   title: "Quais destes tópicos você consegue identificar que têm relação com o seu problema na Transmissão de vídeo?",
   type: "checkbox",
-  choices = [
+  choices: [
     "Sem transmissão de vídeo",
     "Qualidade de vídeo granulada/pixelada",
     "Vídeo congelando repetidamente",
