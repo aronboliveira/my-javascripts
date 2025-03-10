@@ -787,7 +787,26 @@ teleComCompanies = [
       {
         title: "Assinale extensões que você utiliza no seu navegador:",
         type: "checkbox",
-        choices: ["AdBlock", "Grammarly", "LastPass", "Dark Reader", "uBlock Origin", "Privacy Badger", "HTTPS Everywhere", "Tree Style Tab","Microsoft Editor", "Pinterest Save Button", "Amazon Assistant", "Evernote Web Clipper", "1Password", "Honey", "Momentum", "Ghostery"]
+        choices: ["AdBlock", "Grammarly", "LastPass", "Dark Reader", "uBlock Origin", "Privacy Badger", "HTTPS Everywhere", "Tree Style Tab","Microsoft Editor", "Pinterest Save Button", "Amazon Assistant", "Evernote Web Clipper", "1Password", "Honey", "Momentum", "Ghostery", "Wappanalyzer"]
+      },
+      {
+        title: "Caso utilize outras extensões e/ou plugins, liste aqui:",
+        type: "paragraph"
+      },
+      {
+        title: "Você utilizou o Console do navegador de alguma forma?\n\nO mesmo é aberto com Inspecionador (F12) + aba Console",
+        type: "multiple",
+        choices: ["Sim", "Não", "Não tenho certeza"]
+      },
+      {
+        title: `Caso possível, envie-nos mensagens de Erro no console escrevendo aqui ou deixando como um print (tecla Print Screen) anexado.
+
+Para acessar:
+
+1. Clique com o botão direito em um espaço vazio da página + Inspecionar (ou somente aperte F12 na maioria dos navegadores e páginas);
+2. Vá na aba Console no cabeçalho da divisória aberta e clique;
+3. Na subdivisória ao lado esquerdo da mesma divisória anterior, clique em "Erros" ou "Errors". O mesmo título conterá uma contagem antecedendo.`,
+        type: "paragraph"
       }
     ]
   }
