@@ -814,7 +814,8 @@ Para acessar:
     id: "FORM_18",
     fields: [
       {
-        name: "Escolha qual destas classes de problemas está mais bem relacionada à sua questão",
+        titles: "Escolha qual destas classes de problemas está mais bem relacionada à sua questão",
+        type: "dropdown",
         required: true,
         choices: [
           "Problema ao salvar dados",
@@ -840,7 +841,63 @@ Para acessar:
         ],
       },
     ],
-  }
+  },
+  {
+    id: "FORM_19",
+    fields: [
+      {
+        title: "Escolha qual destas classes de problemas está mais bem relacionada à sua questão",
+        type: "dropdown",
+        required: true,
+        choices: [
+          "Problema de Login ou Autenticação",
+          "Aplicativo Travando ou Congelando",
+          "Desempenho Lento",
+          "Dados Não Salvos",
+          "Problema de Sincronização de Dados",
+          "Arquivo Não Carregado",
+          "Arquivo Não Baixado",
+          "Dados Exibidos Incorretamente",
+          "Dados Faltando",
+          "Dados Duplicados",
+          "Problema de Formatação",
+          "Integração Não Funcionando",
+          "Falha na API ou Automação",
+          "Permissão Negada",
+          "Funcionalidade Não Funcionando",
+          "Falha na Interface ou Problema de Exibição",
+          "Cálculo Incorreto",
+          "Aplicativo Não Responde",
+          "Problema de Conexão com a Internet",
+          "Armazenamento Cheio",
+          "Arquivo Corrompido",
+          "Serviço de Terceiros Indisponível",
+          "Entrada de Dados Incorreta",
+          "Problema com Atualização do Aplicativo",
+          "Problema de Acessibilidade",
+          "Formato de Arquivo Não Suportado",
+          "Erro em Script ou Macro",
+          "Comportamento Inesperado",
+          "Aplicativo Não Carrega",
+          "Permissões Incorretas",
+          "Falha na Exportação/Importação de Dados",
+          "Problema de Colaboração",
+          "Notificação Não Funcionando",
+          "Função de Busca Não Funcionando",
+          "Aplicativo Trava em um Dispositivo Específico",
+          "Aplicativo Trava em um Navegador Específico",
+          "Aplicativo Trava em um Sistema Operacional Específico",
+          "Fuso Horário ou Data/Hora Incorretos",
+          "Idioma Exibido Incorretamente",
+          "Outro"
+        ],
+      },
+      {
+        title: 'Caso tenha escolhido "Outro" na opção anterior, por favor descreva aqui:',
+        type: "paragraph",
+      }
+    ],
+  },
 ].
 const timer = 10000;
 if (mainList.length > 1) {
