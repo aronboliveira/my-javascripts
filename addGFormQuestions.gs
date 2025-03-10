@@ -395,7 +395,7 @@ teleComCompanies = [
     title: 'Se você escolheu "Outra" na operação anterior, detalhe aqui:'
   }
 ];
-[
+const mainList = [
   {
     id: 'FORM_1', 
     fields: [
@@ -809,7 +809,46 @@ Para acessar:
         type: "paragraph"
       }
     ]
+  },
+  {
+    id: "FORM_18",
+    fields: [
+      {
+        name: "Escolha qual destas classes de problemas está mais bem relacionada à sua questão",
+        required: true,
+        choices: [
+          "Problema ao salvar dados",
+          "Dados não encontrados",
+          "Erro ao enviar e-mail",
+          "Relatório não gerado",
+          "Acesso negado",
+          "Falha na integração com outro sistema",
+          "Erro ao imprimir documento",
+          "Lentidão no sistema",
+          "Erro ao fazer login",
+          "Dados duplicados",
+          "Erro ao processar pagamento",
+          "Falha na sincronização de dados",
+          "Erro ao atualizar informações",
+          "Problema com a interface do usuário",
+          "Erro ao importar/exportar dados",
+          "Falha na autenticação",
+          "Erro ao criar novo usuário",
+          "Problema com notificações",
+          "Erro ao configurar permissões",
+          "Falha na conexão com o servidor",
+        ],
+      },
+    ],
   }
-].forEach(({id, fields}) => {
+].
+const timer = 10000;
+if (mainList.length > 1) {
+  Logger.log(`Wait! There are more than one id being worked on. Abort the execution within ${timer * 0.001} seconds if this is not intentional`);
+  Utilities.sleep(timer + 500);
+}
+Logger.log("Beginning execution...")
+mainList.forEach(({id, fields}) => {
   addQuestions(id, fields);
-})
+});
+Logger.log("Finished execution")
