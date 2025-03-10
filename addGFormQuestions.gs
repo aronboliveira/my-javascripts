@@ -750,6 +750,46 @@ teleComCompanies = [
       audioErrors,
       ...teleComCompanies
     ]
+  },
+ {
+    id: "FORM_17",
+    fields: [
+      ...os,
+      ...bwr,
+      {
+        title: "Caso seja uma ou algumas das ferramentas especificamente causando problemas, relate aqui:",
+        type: "paragraph"
+      },
+      {
+        title: "Qual era o número aproximado de abas abertas durante os momentos de falha?",
+        type: "dropdown",
+        choices: ["1", "2 a 5", "5 a 10", "10 a 20", "mais de 20"]
+      },
+      {
+        title: "Sobre o seu carregamento, as páginas:",
+        type: "multiple",
+        choices: ["Não carregam", "Carregam parcialmente", "Carregam de forma inesperada, com inconsistências visuais e bugs", "Carregam sem Problemas"]
+      },
+      {
+        title: "Nos casos críticos, o navegador:",
+        required: true,
+        type: "multiple",
+        choices: ["Colapsa completamente e interrompe o seu processo", "se mantém ativo mesmo que de forma muito prejudicada"]
+      },
+      {
+        title: "Você já testou alterações na otimização gráficas da configuração do navegador?",
+        ...yn
+      },
+      {
+        title: "Você já realizou testes similares em outros navegadores?",
+        ...yn
+      },
+      {
+        title: "Assinale extensões que você utiliza no seu navegador:",
+        type: "checkbox",
+        choices: ["AdBlock", "Grammarly", "LastPass", "Dark Reader", "uBlock Origin", "Privacy Badger", "HTTPS Everywhere", "Tree Style Tab","Microsoft Editor", "Pinterest Save Button", "Amazon Assistant", "Evernote Web Clipper", "1Password", "Honey", "Momentum", "Ghostery"]
+      }
+    ]
   }
 ].forEach(({id, fields}) => {
   addQuestions(id, fields);
