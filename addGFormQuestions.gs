@@ -491,6 +491,8 @@ const os = [
     "Thunderbolt",
     "HDMI",
     "DisplayPort",
+    "DB25",
+    "PS/2",
     "Outro",
     "Não reconheço nenhum dos formatos",
   ],
