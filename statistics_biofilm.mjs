@@ -1,5 +1,5 @@
 function assignProductionLevelForAllSheets() {
-  SpreadsheetApp.openById("13zwLjYTwFtGWZZqYjf9NbY1BlqOMaAWRyVGJv2zQXC8")
+  SpreadsheetApp.openById("ID")
     .getSheets()
     .forEach(function (sh) {
       if (!sh.getName().startsWith("Biofilme")) return;
