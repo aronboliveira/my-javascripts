@@ -1,0 +1,22 @@
+{
+    "presets": [
+        "next-babel",
+        [
+            "@babel-preset-env",
+            {
+                "useBuiltIns": "usage",
+                "coreJs": 3,
+                "browsers": ["> 0.25%", "not dead"]
+            }
+        ]
+    ],
+    "plugins": [
+        "@babel-plugin-transform-runtime",
+        [
+            "@babel-plugin-transform-private-method",
+            {
+                "regenerator": true
+            }
+        ]
+    ]
+}
