@@ -1,22 +1,24 @@
 {
-    "presets": [
-        "next-babel",
-        [
-            "@babel-preset-env",
-            {
-                "useBuiltIns": "usage",
-                "coreJs": 3,
-                "browsers": ["> 0.25%", "not dead"]
-            }
-        ]
-    ],
-    "plugins": [
-        "@babel-plugin-transform-runtime",
-        [
-            "@babel-plugin-transform-private-method",
-            {
-                "regenerator": true
-            }
-        ]
+  "presets": [
+    "next/babel",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["> 0.25%", "not dead"]
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
     ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    "@babel/plugin-transform-private-methods"
+  ]
 }
