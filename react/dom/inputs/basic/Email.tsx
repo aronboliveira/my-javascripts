@@ -16,8 +16,7 @@ export default function Email({
   id ||= "email";
   useEffect(() => {
     if (!(r.current instanceof HTMLInputElement)) return;
-    if (r.current.value.startsWith("@"))
-      StyleHandler.blurOnChange(r.current);
+    if (r.current.value.startsWith("@")) StyleHandler.blurOnChange(r.current);
     IOHandler.syncLabel(r.current);
     required && StyleHandler.alarmBorder(r.current);
   }, [r, v, required]);
@@ -31,15 +30,15 @@ export default function Email({
         ref={r}
         id={id}
         name={id}
-        type='email'
-        autoComplete='email'
+        type="email"
+        autoComplete="email"
         minLength={8}
         maxLength={limits.small.MAX_UTF16_SIGNED_SURROGATE}
         pattern={patterns.email}
         required={required ? true : false}
         className={classes.inpClasses}
-        data-fixed='true'
-        onChange={ev => {
+        data-fixed="true"
+        onChange={(ev) => {
           const t = ev.currentTarget;
           /* eslint-disable */
           flags.isAutoCorrectOn
@@ -47,7 +46,7 @@ export default function Email({
             : setV(t.value);
           /* eslint-enable */
         }}
-        onClick={ev => {
+        onClick={(ev) => {
           const t = ev.currentTarget;
           /* eslint-disable */
           flags.isAutoCorrectOn
@@ -58,4 +57,21 @@ export default function Email({
       />
     </div>
   );
+}
+export function addEmailExtension(emailInp: targEl): string {
+  let emailValue = "";
+  if (
+    emailInp instanceof HTMLInputElement ||
+    emailInp instanceof HTMLTextAreaElement
+  ) {
+    if (emailInp.value === "") {
+      emailInp.value = "@.";
+      emailInp.type !== "email" && emailInp.setSelectionRange(0, 0);
+    } else if (emailInp.value === "@") {
+      emailInp.value += "@.";
+      emailInp.type !== "email" && emailInp.setSelectionRange(0, 0);
+    }
+    emailValue = emailInp.value;
+  }
+  return emailValue;
 }
