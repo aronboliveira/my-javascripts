@@ -1,3 +1,4 @@
+export type imageLikElement = HTMLInputElement | HTMLImageElement;
 export type inputLikeElement =
   | HTMLInputElement
   | HTMLTextAreaElement;
@@ -8,9 +9,6 @@ export type listElement =
 export type genericElement =
   | HTMLDivElement
   | HTMLSpanElement;
-export type inputLikeElement =
-  | HTMLInputElement
-  | HTMLTextAreaElement;
 export type entryElement =
   | inputLikeElement
   | HTMLSelectElement;
