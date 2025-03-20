@@ -1,0 +1,26 @@
+<script id="underDev">
+  addEventListener("DOMContentLoaded", () => {
+    const targetElement = document.body;
+    if (targetElement) {
+      const alertDiv = document.createElement("div");
+      alertDiv.textContent = "Esta página ainda está em desenvolvimento!";
+      alertDiv.id = "devAlert";
+      Object.assign(alertDiv.style, {
+        color: "red",
+        width: "100vw",
+        position: "fixed",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        top: "0",
+        backgroundColor: "#fff",
+        zIndex: "999",
+        fontWeight: "bold",
+        fontSize: "1rem",
+        padding: "10px",
+        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+      });
+      targetElement.prepend(alertDiv);
+    }
+  });
+</script>
