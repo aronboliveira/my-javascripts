@@ -1,14 +1,12 @@
-import React from "react";
 export default function GenericErrorComponent({
-  message,
+  message = "Undefined error",
   lib = "bs",
 }: {
-  message: string;
-  lib: "bs" | "mui";
+  message?: string;
+  lib?: "bs" | "mui";
 }) {
-  if (!message) message = "Erro indefinido";
   const inlineStyle = { fontSize: "0.8rem", marginBlock: "1rem" },
-    muiButton = {
+    muiButton: any = {
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: "bold",
       fontSize: "0.875rem",
@@ -111,7 +109,7 @@ export default function GenericErrorComponent({
           className={lib === "mui" ? muiClasses : bsButton}
           onClick={() => window.open(window.location.href, "_self")}
         >
-          <span className={lib === "mui" && "MuiButton-label"}>
+          <span className={lib === "mui" ? "MuiButton-label" : ""}>
             Recarregar página
           </span>
           {lib === "mui" && <span className="MuiTouchRipple-root"></span>}
@@ -122,7 +120,7 @@ export default function GenericErrorComponent({
           className={lib === "mui" ? muiClasses : bsButton}
           onClick={() => window.open(window.location.origin, "_self")}
         >
-          <span className={lib === "mui" && "MuiButton-label"}>
+          <span className={lib === "mui" ? "MuiButton-label" : ""}>
             Retornar para a página inicial
           </span>
           {lib === "mui" && <span className="MuiTouchRipple-root"></span>}
