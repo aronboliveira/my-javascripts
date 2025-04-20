@@ -1,22 +1,23 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import eslintRecommended from "eslint/conf/eslint-recommended";
-import reactPlugin from "eslint-plugin-react";
-import reactHooksPlugin from "eslint-plugin-react-hooks";
-import nextPlugin from "@next/eslint-plugin-next";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import globals from "globals";
-export default [
+const { FlatCompat } = require("@eslint/eslintrc");
+const js = require("@eslint/js");
+const reactPlugin = require("eslint-plugin-react");
+const reactHooksPlugin = require("eslint-plugin-react-hooks");
+const nextPlugin = require("@next/eslint-plugin-next");
+const { configs: nextConfigs } = require("@next/eslint-plugin-next");
+const tsPlugin = require("@typescript-eslint/eslint-plugin");
+const globals = require("globals");
+module.exports = [
   ...new FlatCompat({
-    baseDirectory: dirname(fileURLToPath(import.meta.url)),
+    baseDirectory: __dirname,
+    resolvePluginsRelativeTo: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all,
   }).extends(
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "next/core-web-vitals",
-    "next/typescript"
+    "plugin:react-hooks/recommended"
   ),
+  nextConfigs["core-web-vitals"],
   {
     plugins: {
       react: reactPlugin,
@@ -46,7 +47,7 @@ export default [
     rules: {
       ...Object.fromEntries(
         Object.entries({
-          ...eslintRecommended.rules,
+          ...js.configs.recommended.rules,
           ...reactPlugin.configs.recommended.rules,
           ...reactHooksPlugin.configs.recommended.rules,
           ...nextPlugin.configs.recommended.rules,
@@ -77,11 +78,28 @@ export default [
       "space-before-function-paren": "off",
       "no-restricted-globals": "off",
       "react/display-name": "off",
+      "@next/next/no-img-element": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-var-requires": "off",
       "@typescript-eslint/ban-ts-comment": "off",
-      "@next/next/no-html-link-for-pages": "off",
-      "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/comma-dangle": "off",
+      "@typescript-eslint/space-in-parens": "off",
+      "@typescript-eslint/object-curly-spacing": "off",
+      "@typescript-eslint/space-before-function-paren": "off",
+      "@typescript-eslint/no-invalid-void-type": "off",
+      "@typescript-eslint/no-empty-interface": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/prefer-optional-chain": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/ban-types": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/consistent-type-assertions": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/no-floating-promises": "off",
     },
   },
 ];
