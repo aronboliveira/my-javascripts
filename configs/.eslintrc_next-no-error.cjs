@@ -10,7 +10,13 @@ import globals from "globals";
 export default [
   ...new FlatCompat({
     baseDirectory: dirname(fileURLToPath(import.meta.url)),
-  }).extends("next/core-web-vitals", "next/typescript"),
+  }).extends(
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "next/core-web-vitals",
+    "next/typescript"
+  ),
   {
     plugins: {
       react: reactPlugin,
