@@ -1,4 +1,4 @@
-export type imageLikElement = HTMLInputElement | HTMLImageElement;
+export type imageLikeElement = HTMLInputElement | HTMLImageElement;
 export type inputLikeElement =
   | HTMLInputElement
   | HTMLTextAreaElement;
