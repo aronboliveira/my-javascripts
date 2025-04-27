@@ -34,7 +34,7 @@ export default class DOMValidator {
     return (
       el instanceof HTMLElement &&
       el.contentEditable === "true" &&
-      el.classList.contains("textbox")
+      (el.role === 'textbox' || el.classList.contains("textbox"))
     );
   }
   static isTextbox(
