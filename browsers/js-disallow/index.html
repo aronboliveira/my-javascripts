@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brave – Block JavaScript (mock)</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        padding: 2rem;
+      }
+      #popup {
+        display: none;
+        border: 1px solid #ccc;
+        padding: 1rem;
+        margin-top: 1rem;
+        max-width: 400px;
+      }
+      #popup.open {
+        display: block;
+      }
+      #siteList {
+        margin-top: 1.5rem;
+      }
+      #siteList li {
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Brave Settings – Block JavaScript (mock)</h2>
+
+    <!--
+    The real page uses a custom element hierarchy, but for the mock we just
+    attach shadow roots programmatically (see <script> below) so the
+    automation code exercises the same queryShadowDeep / walkDeep path.
+  -->
+    <button id="addSite">Add a site</button>
+
+    <!--
+    cr-button#add  →  leo-button  →  <button>
+    Built via JS so shadow roots are open and drilable.
+  -->
+    <div id="popup">
+      <label
+        >Site
+        <input
+          id="input"
+          part="input"
+          autocomplete="off"
+          type="text"
+          aria-label="Site"
+          aria-invalid="false"
+      /></label>
+      <div id="addBtnHost"></div>
+    </div>
+
+    <ul id="siteList"></ul>
+
+    <script type="module">
+      // ── Build the cr-button#add shadow chain ─────────────────────────────────
+      const crButton = document.createElement("cr-button");
+      crButton.id = "add";
+
+      const crShadow = crButton.attachShadow({ mode: "open" });
+      const leoButton = document.createElement("leo-button");
+      crShadow.appendChild(leoButton);
+
+      const leoShadow = leoButton.attachShadow({ mode: "open" });
+      const realButton = document.createElement("button");
+      realButton.textContent = "Add";
+      leoShadow.appendChild(realButton);
+
+      document.getElementById("addBtnHost").appendChild(crButton);
+
+      // ── Popup toggle ─────────────────────────────────────────────────────────
+      document.getElementById("addSite").addEventListener("click", () => {
+        document.getElementById("popup").classList.add("open");
+        document.getElementById("input").value = "";
+      });
+
+      // ── Add logic ─────────────────────────────────────────────────────────────
+      realButton.addEventListener("click", () => {
+        const url = document.getElementById("input").value.trim();
+        if (!url) return;
+        const li = document.createElement("li");
+        li.textContent = url;
+        document.getElementById("siteList").appendChild(li);
+        document.getElementById("popup").classList.remove("open");
+      });
+    </script>
+  </body>
+</html>
